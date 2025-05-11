@@ -1,0 +1,78 @@
+baseURL: https://edervieux.fr/
+languageCode: fr-fr
+defaultContentLanguage: fr
+theme: PaperMod
+enableRobotsTXT: false
+minify:
+  disableXML: true
+  minifyOutput: true
+
+languages:
+  fr:
+    title: Emmanuel Dervieux - Site Perso
+    contentDir: content/french
+    languageName: Français 🇫🇷
+    weight: 1
+    menu:
+      main:
+        - identifier: projects
+          name: Projets
+          url: projects/
+          weight: 1
+        - identifier: contact
+          name: Contactez-moi !
+          url: contact/
+          weight: 2
+        - identifier: about
+          name: A propos
+          url: about/
+          weight: 3
+    params:
+      homeInfoParams:  # need to stay even if empty
+        Title: ""
+        Content: ""
+      mainSections: []
+  en:
+    title: Emmanuel Dervieux - Personal Website
+    contentDir: content/english
+    languageName: English 🇬🇧
+    weight: 2
+    menu:
+      main:
+        - identifier: projects
+          name: Projects
+          url: projects/
+          weight: 1
+        - identifier: contact
+          name: Contact me!
+          url: contact/
+          weight: 2
+        - identifier: about
+          name: About
+          url: about/
+          weight: 3
+    params:
+      homeInfoParams:  # need to stay even if empty
+        Title: ""
+        Content: ""
+      mainSections: []
+
+params:
+  displayFullLangName: true
+  env: production
+  author: Emmanuel Dervieux
+  keywords: [Blog, Portfolio, PaperMod]
+  defaultTheme: auto
+  
+  socialIcons:
+    - name: "cv"
+      url: "https://github.com/e-dervieux/curriculum_vitae/releases/latest/download/cv.pdf"
+    - name: "googlescholar"
+      url: "https://scholar.google.fr/citations?user=DCR_h9YAAAAJ"
+    - name: "researchgate"
+      url: "https://www.researchgate.net/profile/Emmanuel-Dervieux-2"
+    - name: "github"
+      url: "https://github.com/e-dervieux"
+
+# Have a look at https://jessewei.dev/blog/2023/papermod/ for further info about modding PaperMod
+# TODO: set favicon https://github.com/adityatelange/hugo-PaperMod/discussions/953

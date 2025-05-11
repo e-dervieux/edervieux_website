@@ -1,0 +1,45 @@
+<form
+  action="https://formspree.io/f/mrbqpqqg"
+  method="POST"
+>
+  <label>
+    {{ i18n "contact_email" }}:
+    <input type="email" name="email" />
+  </label>
+
+  <label>
+    {{ i18n "contact_message" }}:
+    <textarea name="message"></textarea>
+  </label>
+
+  <button type="submit">{{ i18n "contact_send" }}</button>
+</form>
+
+<style>
+  form {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    grid-gap: 1rem;
+    text-align: left;
+    padding: 2rem 0;
+    margin: 0;
+  }
+  form label {
+    display: contents;
+  }
+  form input[type="email"]{color: inherit; border: 1px solid currentColor;}
+  form textarea{color: inherit; border: 1px solid currentColor;}
+  form button {
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid currentColor;
+    background: none;
+    padding: 0.4rem 0.5rem;
+  }
+  form textarea {
+    resize: vertical;
+  }
+  form button {
+    justify-self: start;
+  }
+</style>

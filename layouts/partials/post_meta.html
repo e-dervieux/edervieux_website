@@ -1,0 +1,4 @@
+<!-- this is useful for date localization -->
+{{- if not .Params.hideDate }}
+  {{ .Date | time.Format ":date_full" }}
+{{- end -}}

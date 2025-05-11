@@ -1,0 +1,6 @@
+- id: contact_email
+  translation: "Votre courriel"
+- id: contact_message
+  translation: "Votre message"
+- id: contact_send
+  translation: "Envoyer" 

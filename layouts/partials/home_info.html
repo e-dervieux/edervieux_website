@@ -1,0 +1,19 @@
+{{/* layouts/partials/home_info.html */}}
+{{ $about := .Site.GetPage "welcome" }}
+<article class="first-entry home-info">
+  <header class="entry-header">
+    <h1>
+      {{ with $about }}
+        {{ .Title | markdownify }}
+      {{ end }}
+    </h1>
+  </header>
+  <div class="entry-content">
+    {{ with $about }}
+      {{ .Content }}
+    {{ end }}
+  </div>
+  <footer class="entry-footer">
+    {{ partial "social_icons.html" (dict "align" .Site.Params.homeInfoParams.AlignSocialIconsTo) }}
+  </footer>
+</article> 
