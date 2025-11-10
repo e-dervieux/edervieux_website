@@ -9,7 +9,7 @@ TocOpen: true
 
 ## About
 
-This guide contains various pieces ofinformation about building your own home server. I arrived at these solutions mostly by poking around here and there, and I tried to include links to external resources if you want to learn more about any particular aspect. In particular, this guide details how to:
+This guide contains various pieces of information about building your own home server. I arrived at these solutions mostly by poking around here and there, and I tried to include links to external resources if you want to learn more about any specific aspect. In particular, this guide details how to:
 
   - achieve a satisfactory hardware solution for a home server
   - set up a storage array with redundancy
@@ -27,7 +27,7 @@ This guide contains various pieces ofinformation about building your own home se
 Instead of following this guide, you can absolutely use one of the following solutions:
 
   - **Buy a Synology NAS**: Synology is probably not the only brand doing this, but they offer [NAS devices with multiple drive bays and turnkey software](https://web.archive.org/web/20250504110217/https://www.synology.com/fr-fr/products/DS923+), especially for remote access. However, you're limited to the features Synology has implemented, and it's not very robust if the company changes its policies or goes bankrupt: it's a proprietary black box, whereas most of the solutions below are Open Source and/or have alternatives.
-  - **Use TrueNAS Scale**: [TrueNAS Scale](https://www.truenas.com/truenas-scale/) is a Debian-based OS that offers a number of default features for managing a storage server. Again, you're limited by their app solutions, but since it's Linux underneath, you can always take control via the terminal.
+  - **Use TrueNAS Scale**: [TrueNAS Scale](https://www.truenas.com/truenas-scale/) is a Debian-based OS that offers a number of default features for managing a storage server. Again, you're limited by their app solutions, but since it's Linux under the hood, you can always take control *via* the terminal.
 
 The point of building your own storage server *from scratch* is multi-fold. It allows you to:
 
@@ -45,7 +45,7 @@ Personally, I learned a ton by building this server, both about how Linux works 
 
 The server will run 24/7, so power consumption is one of the main things to watch out for. A desktop tower can easily consume around 100 W at idle (sources: [here](https://web.archive.org/web/20250504101356/https://www.reddit.com/r/watercooling/comments/16szgmr/whats_your_idle_power_usage/?rdt=41155) and [here](https://web.archive.org/web/20250504101310/https://www.techpowerup.com/forums/threads/high-power-consumption-in-idle.314694/)), while a recent laptop or Mac mini can go below ten watts (see [here](https://web.archive.org/web/20250504101801/https://www.reddit.com/r/linuxquestions/comments/zqolh3/normal_power_consumption_for_laptop/?rdt=32814) and [here](https://web.archive.org/web/20250504101903/https://www.reddit.com/r/linux/comments/zwar52/haha_suck_on_dat_windows_finally_got_idle_power/?rdt=37144)), but those are potentially (very) expensive (even used, a Mac mini M*x* costs a few hundred euros). That said, in the coming years, an old laptop or Mac mini will become attractive alternatives...
 
-Meanwhile, for a super cheap solution, *thin clients* are an interesting option because they cost next to nothing if refurbished. With 16 GB RAM and 240 GB SSD, a Dell Wyse 5070 costs only 110€ on sites like Remarkt (bought in January 2025). Prices fluctuate a lot, but there are often good deals, and you can build a server for about a hundred euros. The advantage of this kind of machine, even if the CPU is slow, is a power consumption between 4 and 10 W. For reference, **10 W at 20 cents per kWh means about twenty euros per year**.
+Meanwhile, for a super cheap solution, *thin clients* are an interesting option because they cost next to nothing if refurbished. With 16 GB RAM and 240 GB SSD, a Dell Wyse 5070 costs only 110€ on sites like Remarkt (bought in January 2025). Prices fluctuate a lot, but there are often good deals, and you can build a server for about a hundred euros. The advantage of this kind of machine, even if the CPU is slow, is a power consumption between 4 and 10 W. For reference, **10 W at 20 cents per kWh means about twenty euros per year in electricity bill**.
 
 ### Hardware decoding capability
 
@@ -81,9 +81,9 @@ This depends on the size of your bay (number of drives), your budget, and how mu
 
 ## Operating system
 
-As mentioned above, for tooling reasons, we'll go with a Linux distribution. There are [plenty](https://en.wikipedia.org/wiki/List_of_Linux_distributions), and I personally chose **Lubuntu**, which is an Ubuntu variant using LxQt, so you get a Debian system with all its advantages, and a system RAM footprint among the lowest possible (see [here](https://web.archive.org/web/20250508133609/https://www.androidauthority.com/linux-distro-least-ram-3489365/) and [here](https://web.archive.org/web/20250320065859/https://www.reddit.com/r/Lubuntu/comments/1g2gmp8/general_appreciation_lubuntu_is_a_welloptimised/))).
+As mentioned above, for tooling reasons, we'll go with a Linux distribution. There are [plenty](https://en.wikipedia.org/wiki/List_of_Linux_distributions), and I personally chose **Lubuntu**, which is an Ubuntu variant using LxQt, so you get a Debian system with all its advantages, and a system RAM footprint among the lowest possible (see [here](https://web.archive.org/web/20250508133609/https://www.androidauthority.com/linux-distro-least-ram-3489365/) and [here](https://web.archive.org/web/20250320065859/https://www.reddit.com/r/Lubuntu/comments/1g2gmp8/general_appreciation_lubuntu_is_a_welloptimised/)).
 
-Having Lubuntu also lets you connect a screen to the server if needed, and still have a GUI. This can also be handy if you want to use the server as both a NAS **and** a media server connected to your TV, for example. If you only plan to access the server via the command line, you can just install Ubuntu Server, which should be even lighter on RAM usage than Lubuntu. 
+Having Lubuntu also lets you connect a screen to the server if needed, and still have a GUI. This can also be handy if you want to use the server as both a NAS **and** a media server connected to your TV, for example. If you only plan to access the server via the command line, you can just install Ubuntu Server, which should be even lighter on RAM usage than Lubuntu.
 
 # Part II: Setting up the different services
 
@@ -110,7 +110,7 @@ That said, you're building a personal server and the above considerations, while
 
 ### About RAID
 
-As mentioned above, I recommend reading [this](https://en.wikipedia.org/wiki/RAID) or [that](https://web.archive.org/web/20250504115209/https://eshop.macsales.com/blog/56056-a-beginners-guide-to-understanding-raid/) to get familiar with RAID. In short, for storage, I recommend:
+As mentioned above, I recommend reading [this](https://en.wikipedia.org/wiki/RAID) or [that](https://web.archive.org/web/20250504115209/https://eshop.macsales.com/blog/56056-a-beginners-guide-to-understanding-raid/) to get familiar with RAID. In short, for storage, I would recommend:
   - RAID 1 (mirror) if you only have two drives, but you'll lose half your storage capacity.
   - RAID 5 (stripe) if you have three or more drives, you'll only lose about 1/N of the capacity, N being your number of drives.
 
@@ -122,10 +122,10 @@ ZFS, or Zettabyte File System, is a file system with some interesting properties
 
   - You can mount any number of hard drives into *pools* (or [*tanks*](https://serverfault.com/questions/562564/why-are-all-the-zpools-named-tank)), with [different RAID levels](https://web.archive.org/web/20250323043434/https://www.raidz-calculator.com/raidz-types-reference.aspx), similar (roughly) to RAID 1 and 5.
   - ZFS has the concept of snapshots ([*snapshots*](https://web.archive.org/web/20250216204631/https://docs.oracle.com/cd/E19253-01/819-5461/gbcya/index.html)), which let you capture the system state at a given time and roll back to it *a posteriori*.
-  - ZFS is purely software. The drives can be plugged into different ports on the server. You could even imagine a ZFS pool using, in the same RAIDZ, an internal HDD and an external SSD connected via USB. More interestingly, you can *export* your pool from one machine, plug the drives into another, and *import* it there. Thus, you're not tied to a particular hardware RAID controller (and especially not to a failure of one!).
+  - ZFS is purely software. The drives can be plugged into different ports on the server. You could even imagine a ZFS pool using, in the same RAIDZ, an internal HDD and an external SSD connected via USB. More interestingly, you can *export* your pool from one machine, plug the drives into another, and *import* it there. Thus, you're not tied to a particular hardware RAID controller (and especially not to the failure of one!).
   - ZFS offers performance comparable to hardware RAID ([source](https://web.archive.org/web/20250508152314/https://www.krenger.ch/blog/raid-z-vs-hardware-raid-5/)).
 
-**Fun fact:** a zettabyte is 10^21 bytes, or about 2^70 bytes. ZFS can actually allocate volumes of 2^128 bytes! ([source](https://en.wikipedia.org/wiki/ZFS))
+**Fun fact:** a zettabyte is 10^21 bytes, or about 2^70 bytes. ZFS can actually allocate volumes of 2^128 bytes, or over 10^26 terabytes! ([source](https://en.wikipedia.org/wiki/ZFS))
 
 ### Final setup
 
@@ -166,7 +166,7 @@ ExecStartPre=/usr/bin/lsblk
 ExecStartPre=/usr/bin/sleep 20
 ```
 
-20 s is enough for my QNAP TR-004 with four drives, but you may need more depending on your setup and how long your drives take to spin up.
+20 s is enough for my QNAP TR-004 with four drives, but you may need more depending on your setup and how long your drives take to spin up. While good enough for home use, note that this is quite a dirty workaround, and a better solution would be to probe for disk presence before mounting explicitely instead of just waiting a given amount of time.
 
 ### Reading S.M.A.R.T. attributes
 
@@ -236,7 +236,7 @@ should also send you an email with the body defined by `printf` and the subject 
 
 Now, configure `smartd` to send an email if it detects a problem on a disk. Do this by editing `/etc/smartd.conf`. At first, you can leave all lines commented and just add the line `DEVICESCAN -a -n standby -m your.email@gmail.com -M test`. If all is well, restarting `smartd` with `sudo systemctl restart smartd` should send you an info email. If not, check the `smartd` journal with `journalctl -xeu smartmontools.service` or the `msmtp` logs with `tail /var/log/msmtp`.
 
-For an explanation of `smartd` commands, see [the doc](https://web.archive.org/web/20250510120341/https://man.freebsd.org/cgi/man.cgi?smartd.conf%285%29), which is very well done. To trigger alerts if a disk has a problem, I personally added a line like this for each disk:
+For an explanation of `smartd` commands, see [the doc](https://web.archive.org/web/20250510120341/https://man.freebsd.org/cgi/man.cgi?smartd.conf%285%29), which is very well written. To trigger alerts if a disk has a problem, I personally added a line like this for each disk:
 
 `/dev/disk/by-id/ata-[...] -d jmb39x-q,N -a -m your.account@gmail.com -n standby`
 
@@ -294,7 +294,7 @@ Setting up a VPN lets you securely access your server from anywhere in the world
 
 `sudo apt-get install openvpn openssl easy-rsa`
 
-**Note:** the setup I describe below lets you securely connect to a virtual network including the server and other machines connected to it. This means that, from the client's point of view, the server will have an IP like `10.50.50.1`, the client will have `10.50.50.2`, and another machine connected to the server will have `10.50.50.3`. These three machines can then communicate as if they were on the same network. That's all this config does. In particular, **it does NOT mean** that all your internet traffic will go *via* a secure tunnel and exit through the server's internet connection (unlike the common meaning of VPN, and what services like NordVPN offer). You can configure OpenVPN to do that though, see [here](https://web.archive.org/web/20250505064141/https://openvpn.net/community-resources/how-to/#routing-all-client-traffic-including-web-traffic-through-the-vpn).
+**Note:** the setup I describe below lets you securely connect to a virtual network including the server and other machines connected to it. This means that, from the client's point of view, the server will have an IP like `10.50.50.1`, the client will have `10.50.50.2`, and another machine connected to the server will have `10.50.50.3`. These three machines can then communicate as if they were on the same network. That's all this config does. In particular, **it does NOT mean** that all your internet traffic will go *via* a secure tunnel and exit through the server's internet connection (unlike the layman meaning of the term "VPN", and what services like NordVPN offer). You can configure OpenVPN to do that though, see [here](https://web.archive.org/web/20250505064141/https://openvpn.net/community-resources/how-to/#routing-all-client-traffic-including-web-traffic-through-the-vpn).
 
 ### Generating security keys
 
@@ -330,7 +330,7 @@ Each `build` step will ask you to create a password:
   - The `server` password, used by the OpenVPN server to start its service.
   - The `client` password, used by the client to connect to the server.
 
-Normally all generated keys are in `easy-rsa/pki`. Then put:
+Normally, all generated keys are in `easy-rsa/pki`. Then put:
 
 ```
 ca.crt
@@ -377,7 +377,7 @@ The important lines I changed are as follows:
 
   - `askpass pass`, so you don't have to enter the server password every time the service starts. `pass` is a 400-chmoded file next to the config file in `/etc/openvpn/server` and contains the `server` password defined above.
   - `port 443` and `proto tcp` make your VPN look like a [regular HTTPS connection](https://en.wikipedia.org/wiki/HTTPS#Technical). This lets you connect to your VPN from anywhere, while the default OpenVPN port (1194) is often blocked by public or corporate firewalls. **Note:** if you also want to host an HTTPS web server on the same machine, it's possible with `port-share`, but requires extra config, see [here](https://web.archive.org/web/20250318175242/https://memo-linux.com/openvpn-sur-le-port-443-partage-avec-un-serveur-web/).
-  - The key files in `local` should also ideally be chmod 400.
+  - The key files in `local` should also ideally be 400-chmoded.
   - `server 10.50.50.0 255.255.255.0` gives the subnet IP for your VPN. This means that for the client, the server will be at `10.50.50.1`. Typically, [the OpenVPN documentation](https://web.archive.org/web/20250505064141/https://openvpn.net/community-resources/how-to/#numbering-private-subnets) recommends an address somewhere in the middle of the `10.X.X.X` range.
 
 **Note:** you'll find [references](https://web.archive.org/web/20240822022408/https://www.reddit.com/r/OpenVPN/comments/y4jdvy/configuring_the_openvpn_on_tcp_or_udp/?rdt=62515) and [references](https://web.archive.org/web/20250320043004/https://www.reddit.com/r/VPN/comments/41pky3/udp_vs_tcp/) online saying TCP is slower than UDP and that UDP should be preferred for OpenVPN. It seems that's not necessarily true in practice, see [here](https://web.archive.org/web/20250217062459/https://www.fastvue.co/sophos/blog/testing-sophos-ssl-vpn-performance-udp-or-tcp/) and [here](https://web.archive.org/web/20241213215156/https://www.top10vpn.com/fr/guides/udp-vs-tcp/). Personally, from a remote network, I had exactly the same bandwidth (about 100 Mbps) in TCP and UDP. So I chose TCP to be sure that I could access my VPN from any network, especially since I plan to use my VPN as a way to administer my server remotely, and not to transfer large amounts of data.
@@ -436,7 +436,7 @@ To connect to your VPN, simply run:
 sudo openvpn /path/to/client.conf
 ```
 
-This should prompt you, in addition to your admin password, for the `client` password defined when generating the key for this particular client. If all goes well, you should see a log line containing `Initialization Sequence Completed`. You can now access your server at 10.50.50.1. If so, congratulations! Your VPN is fully functional.
+This should prompt you, in addition to your admin password, for the `client` password defined when generating the key for this particular client. If all goes well, you should see a log line containing `Initialization Sequence Completed`. You can now access your server at `10.50.50.1`. If this works, congratulations! Your VPN is fully functional.
 
 ### Bonus: measuring your VPN bandwidth
 
@@ -451,7 +451,7 @@ Then, on the server side, run `iperf -s` to start an iperf server. By default, t
 
 ## Serving Jellyfin on the Internet
 
-This section explains how to set up a [Jellyfin](https://web.archive.org/web/20250509030531/https://jellyfin.org/docs/) media server, which offers an interface similar to most existing VOD services. We'll then see how to make this server accessible from the internet securely using Cloudflare tunnels.
+This section explains how to set up a [Jellyfin](https://web.archive.org/web/20250509030531/https://jellyfin.org/docs/) media server, which offers an interface similar to most existing Video-On-Demand services. We'll then see how to make this server accessible from the internet securely using Cloudflare tunnels.
 
 ### Installation
 
@@ -469,7 +469,7 @@ Typically done at the same time as your *cold storage* backup, you can back up y
 
 ### Getting a domain name
 
-Now that your Jellyfin server is running on the local network, let's see how to serve it on the internet. There are several solutions, the classic approach being to configure everything yourself, with port opening and forwarding, DNS, a reverse proxy, *etc.* (see [here](https://web.archive.org/web/20250511122939/https://lbrito.ca/blog/2020/06/free_https_home_server.html)).
+Now that your Jellyfin server is running on the local network, let's see how to serve it on the internet. There are several solutions for this, the classic approach being to configure everything yourself, with port opening and forwarding, DNS, a reverse proxy, *etc.* (see [here](https://web.archive.org/web/20250511122939/https://lbrito.ca/blog/2020/06/free_https_home_server.html)).
 
 If you use NordVPN, they also offer a turnkey solution with Meshnet, see [here](https://meshnet.nordvpn.com/how-to/remote-files-media-access/access-jellyfin-media-sever-remotely). There are also [several other solutions](https://web.archive.org/web/20250414090813/https://dev.to/jagkush/a-quick-way-to-access-your-local-server-on-the-internet-4kei) like localhost.run, Ngrok, or Cloudflare tunnels. I chose the latter mainly because it's free, lets you link the tunnel to a domain name that you own (which free accounts on localhost or Ngrok don't), and is relatively simple to set up.
 
@@ -477,7 +477,7 @@ First, you'll need a domain name to serve your website. There are [plenty of pro
 
 ### Routing a Cloudflare tunnel
 
-Once you have your domain, you can add it to your (free) Cloudflare account. To do this, follow [this guide](https://medium.com/@fabrice_/setting-up-a-media-server-jellyfin-and-making-it-securely-accessible-from-anywhere-in-the-world-ca3b4d9dd19e), and the [Cloudflare doc](https://web.archive.org/web/20250511124347/https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/local-management/create-local-tunnel/), which is very well done.
+Once you have your domain, you can add it to your (free) Cloudflare account. To do this, follow [this guide](https://medium.com/@fabrice_/setting-up-a-media-server-jellyfin-and-making-it-securely-accessible-from-anywhere-in-the-world-ca3b4d9dd19e), and the [Cloudflare doc](https://web.archive.org/web/20250511124347/https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/do-more-with-tunnels/local-management/create-local-tunnel/), which is very well written.
 
 In short, after adding your domain to Cloudflare (following the step-by-step tutorial in the Cloudflare interface), install `cloudflared` on your server:
 

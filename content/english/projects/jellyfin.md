@@ -29,15 +29,15 @@ To these first three categories, I have added two more:
 
 ## Why streaming is NOT recommended?
 
-I currently host this Jellyfin on a very modest setup that does not allow (or poorly allows) streaming of high-quality sources (typically 1080p-2160p in x265) which brings the server to its knees. So, please do not stream your movies, but download them locally before watching.
+I currently host this Jellyfin on a very modest hardware (Dell Wyse 5070) that does not allow (or poorly allows) streaming of high-quality sources such as 1080p-2160p x265, which brings the server to its knees. So please do **not** stream the movies, but download them locally before watching.
 
-Still, feel free to use the integrated player for previewing, or to check that the movie is in the right language / has subtitles / is of sufficient quality for you.
+Still, feel free to use the integrated player for previewing, or to check that the movie is in the right language / has subtitles / is of sufficient quality according to your liking.
 
 ## An error, a request?
 
 ### The 700 MB DivX is outdated...
 
-This collection of about 900 movies has been gathered over the years from very diverse sources. As a result, some movies obtained in the 2000s are of very poor quality. My apologies for that. If you want to watch a movie and find the quality really bad, write to me and I'll provide a better version.
+This collection of about 900 movies has been gathered over the years from very diverse sources. As a result, some movies obtained in the early 2000s when eMule was a thing are of very poor quality. My apologies for that. If you want to watch a movie and find the quality really bad, write to me and I'll provide a better version.
 
 ### ...except for B-movies!
 
@@ -45,7 +45,7 @@ A number of movies, especially some 80s genre films, are absolutely impossible t
 
 ### Identification error
 
-Movie identification, i.e., retrieving the poster and other metadata (director, synopsis, cast, *etc.*) is managed automatically by Jellyfin. I have carefully reviewed and corrected misidentified movies and re-tagged them properly from IMDB or similar, when possible, but mistakes can still happen. Don't hesitate to contact me if you notice that a Disney *Cinderella* is actually a 2010s body horror snuff movie!
+Movie identification, i.e., retrieving the poster and other metadata (director, synopsis, cast, *etc.*) is managed automatically by Jellyfin. I have carefully reviewed and corrected misidentified movies and re-tagged them properly from IMDB or similar when possible, but mistakes can still happen. Don't hesitate to contact me if you notice that a Disney *Cinderella* is actually a 2010s body horror snuff movie!
 
 ### But where do you find all this?
 
@@ -61,4 +61,4 @@ I can't recommend [Rarelust](https://rarelust.com/) enough for the quantity and 
 
 ## How did you set up this server?
 
-All the details about setting up my personal server in general—and making a Jellyfin server accessible from the internet, in particular—are available in [this guide](projects/nas_guide#serving-jellyfin-on-the-internet). 
+All the details about setting up my personal server in general—and making a Jellyfin server accessible from the internet, in particular—are available in [this guide](projects/nas_guide#serving-jellyfin-on-the-internet).

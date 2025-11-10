@@ -27,9 +27,9 @@ J'ai organisé ma médiathèque en cinq catégories :
   - **Captures de films** qui contient des captures d'écrans de films qui m'ont marqué, soit parce que le visuel est particulièrement bluffant, soit parce que ça correspondait à un moment fort du film que je voulais pouvoir me remémorer... N'hésitez pas à faire un tour là-dedans pour vous inspirer !
   - **Collections de films** qui contient plusieurs playlists thématiques (essentiellement sur des films de genre et / ou des origines géographiques spécifiques) qui ne sont pas ou mal traités par Jellyfin. En effet, en cliquant sur la base "Films" par exemple, on a accès à des genres taggés automatiquement en haut de l'écran (comme par exemple "Western", qui marche bien), mais il n'y avait pas de sous-genre "Giallos" ou "Sword & Sorcery" par exemple !
 
-## Pourquoi de ne pas regarder en streaming ?
+## Pourquoi ne pas regarder en streaming ?
 
-J'héberge actuellement ce Jellyfin sur une configuration extrêmement modeste qui ne permet pas / mal le streaming de sources en haute qualité (1080p-2160p en x265 typiquement) qui mettent le serveur à genoux. Aussi, merci de ne pas regarder vos films en streaming dessus, mais de d'abord les télécharger en local avant de les regarder.
+J'héberge actuellement ce Jellyfin sur un matériel extrêmement modeste (Dell Wyse 5070) qui ne permet pas (ou mal) le streaming de sources en haute qualité (1080p-2160p en x265 typiquement), ces dernières mettant le serveur à genoux. Aussi, merci de **ne pas** regarder vos films en streaming dessus, mais de les télécharger en local avant de les regarder.
 
 N'hésitez pas tout de même à vous servir de la lecture intégrée pour une prévisualisation, ou pour vérifier que le film est dans la bonne langue / a des sous-titres / une qualité suffisante à vos yeux.
 
@@ -37,7 +37,7 @@ N'hésitez pas tout de même à vous servir de la lecture intégrée pour une pr
 
 ### Le DivX de 700 Mo c'est has been...
 
-Cette collection d'environ 900 films a été rassemblée au fil des ans et à partir de sources très diverses. Aussi, certains films récupérés dans les années 2000s sont dans une qualité très médiocre. Si vous voulez regarder un film et que vous trouvez la qualité vraiment pourrie, écrivez-moi et je le mettrai en meilleure qualité.
+Cette collection d'environ 900 films a été rassemblée au fil des ans et à partir de sources très diverses. Aussi, certains films récupérés au début des années 2000 pendant l'âge d'or d'eMule sont dans une qualité très médiocre. Si vous voulez regarder un film et que vous trouvez la qualité vraiment pourrie, écrivez-moi et je le mettrai en meilleure qualité.
 
 ### ...sauf pour les nanards !
 

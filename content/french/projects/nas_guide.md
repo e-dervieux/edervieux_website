@@ -22,6 +22,8 @@ Ce guide contient différentes informations concernant le montage d'un serveur p
 
 **Note :** ce guide présuppose que vous ayez une connaissance basique de la ligne de commande Linux, si ce n'est pas le cas vous pouvez trouver pléthore de ressources sur internet à ce sujet, à commencer par [ceci](https://ubuntu.com/tutorials/command-line-for-beginners). De plus, la plupart des liens hypertextes sont archivés quand c'était pertinent, voir [ici](about/links) pour plus de détails.
 
+⚠️ **Attention** : je ne suis pas sysadmin, et je ne prétends pas détenir **là** vérité sur la meilleure façon de monter son serveur maison. En particulier, j'insiste sur le fait que les solutions présentées dans ce guide sont un compromis entre ne rien faire, et avoir une solution sécurisée digne du cador des responsables de la sécurité informatique chez IBM. J'essayerai de donner, tout au long du guide, des pistes pour aller plus loin et / où des solutions alternatives plus ou moins sécurisées. Ça reste à vous de mettre en adéquation le niveau de sécurité et de redondance de votre système d'information avec la criticité des données que vous y stockez.
+
 ## Pourquoi réinventer la roue ?
 
 Plutôt que de suivre ce guide, il est tout à fait possible d'utiliser une des deux solutions suivantes:
@@ -45,7 +47,7 @@ Le but de monter son propre serveur de stockage *from scratch* est multiple. Cel
 
 Le serveur va tourner h24, 7j/7, la consommation électrique est donc un des principaux points de vigilance à considérer. En effet, là où une tour risque de consommer assez facilement de l'ordre de 100 W au repos (sources: [ici](https://web.archive.org/web/20250504101356/https://www.reddit.com/r/watercooling/comments/16szgmr/whats_your_idle_power_usage/?rdt=41155) et [là](https://web.archive.org/web/20250504101310/https://www.techpowerup.com/forums/threads/high-power-consumption-in-idle.314694/)), un laptop récent ou un Mac mini permettent de descendre sous la dizaine de watts (*cf.* [ici](https://web.archive.org/web/20250504101801/https://www.reddit.com/r/linuxquestions/comments/zqolh3/normal_power_consumption_for_laptop/?rdt=32814) et [là](https://web.archive.org/web/20250504101903/https://www.reddit.com/r/linux/comments/zwar52/haha_suck_on_dat_windows_finally_got_idle_power/?rdt=37144)) mais sont potentiellement (très) onéreux (même en occasion un Mac mini M*x* coûte quelques centaines d'euros). Cela dit, dans les années qui viennent, un vieux laptop ou un Mac mini deviendront des alternatives alléchantes...
 
-En attendant, pour une solution ultra cheap, les *thin clients* (ou clients légers, en bon français), sont une option intéressante car ils ne coûtent pratiquement rien en reconditionné. Avec 16 Go de Ram et 240 Go de SSD, un Dell Wyse 5070 ne coûte que 110€ sur des sites comme Remarkt (achat en janvier 2025). Les prix sont très fluctuants, mais il y a souvent de bonnes affaires et moyen de se monter un serveur pour une centaine d'euros. L'avantage de ce genre de machine, même si le processeur est peu véloce, c'est une consommation variant entre 4 et 10 W. À titre d'information, **10 W de consommation à 20 cts du kilowatt-heure se traduisent par un coût annuel de l'ordre de la vingtaine d'euros**.
+En attendant, pour une solution ultra cheap, les *thin clients* (ou clients légers, en bon français), sont une option intéressante car ils ne coûtent pratiquement rien en reconditionné. Avec 16 Go de Ram et 240 Go de SSD, un Dell Wyse 5070 ne coûte que 110€ sur des sites comme Remarkt (achat en janvier 2025). Les prix sont très fluctuants, mais il y a souvent de bonnes affaires et moyen de se monter un serveur pour une centaine d'euros. L'avantage de ce genre de machine, même si le processeur est peu véloce, c'est une consommation variant entre 4 et 10 W. À titre d'information, **10 W de consommation à 20 cts du kilowatt-heure se traduisent par un coût annuel de l'ordre de la vingtaine d'euros en facture d'électricité**.
 
 ### Capacité de décodage matériel
 
@@ -117,7 +119,7 @@ Comme dit plus haut, je vous recommande de lire [ceci](https://fr.wikipedia.org/
 
 Pour votre stockage, vous pouvez donc opter pour un simple RAID si votre contrôleur / carte mère le permet. Pour ma part, j'ai préféré utiliser ZFS, qui dispose de certains avantages par rapport au RAID.
 
-### À propos de ZFS 
+### À propos de ZFS
 
 ZFS, pour Zettabyte File System, est un système de fichier qui dispose de certaines propriétés intéressantes dans le cadre d'un serveur de stockage :
 
@@ -126,7 +128,7 @@ ZFS, pour Zettabyte File System, est un système de fichier qui dispose de certa
   - ZFS est purement logiciel. Les disques durs peuvent donc être branchés sur différents ports du serveur. On peut même imaginer un pool ZFS qui utiliserait dans le même RAIDZ un HDD interne et un SSD externe connecté en USB. Plus intéressant, cela permet notamment de faire un *export* de son pool sur une machine donnée, de brancher les disques sur une autre machine, et de faire un *import* sur cette nouvelle machine. On devient donc indépendant d'un éventuel contrôleur de disque / RAID matériel (et surtout d'une défaillance de ce dernier !).
   - ZFS offre des performances comparables à un RAID matériel ([source](https://web.archive.org/web/20250508152314/https://www.krenger.ch/blog/raid-z-vs-hardware-raid-5/)).
 
-**Fun fact :** un zettaoctet vaut 10^21 octets, soit environ 2^70 octets. ZFS peut en fait allouer des volumes de 2^128 octets ! ([source](https://en.wikipedia.org/wiki/ZFS))
+**Fun fact :** un zettaoctet vaut 10^21 octets, soit environ 2^70 octets. ZFS peut en fait allouer des volumes de 2^128 octets, soit plus de 10^26 téraoctets ! ([source](https://en.wikipedia.org/wiki/ZFS))
 
 ### Setup final
 
@@ -169,7 +171,7 @@ ExecStartPre=/usr/bin/lsblk
 ExecStartPre=/usr/bin/sleep 20
 ```
 
-Il se trouve que 20 s est un délai suffisant pour mon QNAP TR-004 équipé de quatre disques, mais il peut falloir plus en fonction de votre configuration et du temps que prennent vos disques pour atteindre leur vitesse de croisière.
+Il se trouve que 20 s est un délai suffisant pour mon QNAP TR-004 équipé de quatre disques, mais il peut falloir plus en fonction de votre configuration et du temps que prennent vos disques pour atteindre leur vitesse de croisière. À noter que bien que fonctionnelle, cette solution est assez crasseuse, et il serait plus propre de sonder les disques jusqu'à ce qu'ils soient tous détectés avant de monter la grappe ZFS, plutôt que de simplement attendre une durée fixe.
 
 ### Lecture des attributs S.M.A.R.T.
 
@@ -247,6 +249,8 @@ Pour une explication des commandes smartd, on se référera à [la doc](https://
 où N est entre 0 et 3. L'option `-a` alertera en cas d'erreurs ou de dégradation des attributs SMART, tandis que `-n standby` permet de ne pas faire tourner les disques si ceux-ci était arrêtés (en hibernation).
 
 ### Utiliser `rsync` pour synchroniser son *cold storage*
+
+*Dans le cas où votre *cold storage* serait aussi un pool ZFS, vous pouvez sautez directement à la section suivante.*
 
 Comme dit plus haut, c'est une bonne idée d'avoir une copie de sauvegarde de ses données hors site, qu'on viendra synchroniser périodiquement avec le pool de son serveur. Pour ce faire, on peut utiliser la commande `rsync` ([man](https://web.archive.org/web/20250509091025/https://linux.die.net/man/1/rsync)) :
 
@@ -499,7 +503,7 @@ cloudflared tunnel login
 cloudflared tunnel create jellyfin_tunnel
 cloudflared tunnel list
 touch .cloudflared/config.yml
-nano .cloudflared/config.yml 
+nano .cloudflared/config.yml
 cloudflared tunnel list
 ```
 
